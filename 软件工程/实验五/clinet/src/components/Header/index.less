@@ -1,0 +1,67 @@
+@import "../../styles/common.less";
+@import "../../styles/colors.less";
+
+.header {
+	height: 100px;
+	background-color: @colorM;
+
+	&-top-wrapper {
+		padding: 0 20px;
+		height: 60px;
+		line-height: 60px;
+
+		.header-top {
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+
+			.user-tip {
+                display: flex;
+                align-items: center;
+
+                .avatar {
+                    width: 35px;
+                    height: 35px;
+                    border-radius: 100%;
+                }
+            }
+
+            .sign-out-btn {
+                padding-left: 10px;
+                color: @colorB;
+            }
+		}
+	}
+
+	.breadcrumb-wrapper {
+		padding: 0 20px;
+		border-top: 1px solid @colorA;
+		display: flex;
+		justify-content: space-between;
+		height: 40px;
+		line-height: 40px;
+
+		.breadcrumb {
+			position: relative;
+			.angle();
+		}
+
+		.weather-wrapper {
+			display: flex;
+
+			.weather {
+				display: flex;
+				padding-left: 15px;
+				align-items: center;
+
+				span {
+					padding: 0 2px;
+				}
+
+				&-icon {
+					height: 55%;
+				}
+			}
+		}
+	}
+}

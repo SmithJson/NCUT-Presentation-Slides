@@ -1,0 +1,57 @@
+@import './colors.less';
+
+@color: @colorB, @colorD, @colorP, @colorV;
+
+.loop( @index )when( @index > 0 ){
+    &-@{index} {
+        animation-delay: (0.2s + @index * 0.2);
+        background-color: extract(@color, @index);
+        box-shadow: 0 0 7px extract(@color, @index);
+    }
+    .loop((@index - 1));
+}
+
+// 加载动画
+@keyframes runtime {
+    to {
+        transform: translateY(-12px);
+    }
+    from {
+        transform: translateY(12px);
+    }
+}
+
+#loading-wrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+	align-items: center;
+	z-index: 19951060119;
+
+    &.hide {
+        display: none;
+    }
+
+    .item-box {
+        list-style: none;
+        padding: 0;
+        width: 50%;
+        display: flex;
+        justify-content: center;
+
+        .item {
+            width: 20px;
+            margin: 0 10px;
+            padding-top: 20px;
+            border-radius: 2px;
+            animation: runtime .7s ease-in-out infinite alternate;
+            animation-fill-mode: both;
+            .loop(4);
+        }
+    }
+}

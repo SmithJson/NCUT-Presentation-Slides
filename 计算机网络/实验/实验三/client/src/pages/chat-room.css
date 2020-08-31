@@ -1,0 +1,135 @@
+::-webkit-scrollbar {
+    display: none;
+}
+
+.chat-room-container {
+    padding    : 15px;
+    height     : 100vh;
+    color      : #333;
+    font-family: "微软雅黑";
+}
+
+.back-btn {
+    width: 2rem;
+}
+
+.chat-room-container .title {
+    font-size: 1.2rem;
+    margin   : 0;
+}
+
+.chat-room-container .online {
+    font-size: 0.8rem;
+    margin   : 0;
+}
+
+.header {
+    display        : flex;
+    justify-content: space-between;
+    align-items    : center;
+}
+
+.chat-list {
+    padding : 35px 0;
+    padding-bottom: 20px;
+    height  : calc(100vh - 35px - 55px);
+    overflow: hidden;
+    margin  : 0px -15px;
+}
+
+.chat-list .msg {
+    height       : 100%;
+    overflow-y   : auto;
+    border-bottom: 1px solid #ccc;
+}
+
+.chat-list .msg .info {
+    padding     : 10px;
+}
+
+.chat-list .msg .info.mine {
+    text-align: right;
+    display   : flex;
+}
+
+.chat-list .msg .info.mine .info-l {
+    flex-grow: 3;
+}
+
+.chat-list .msg .info.mine .text {
+    background-color: greenyellow;
+    text-align      : left;
+}
+
+.chat-list .msg .info.mine .avatar {
+    margin-left: 10px;
+}
+
+.chat-list .msg .info.other {
+    display: flex;
+}
+
+.chat-list .msg .info.other .info-r {
+    flex-grow: 3;
+}
+
+.chat-list .msg .info.other .avatar {
+    margin-right: 10px;
+
+}
+
+.chat-list .msg .info .avatar {
+    position     : relative;
+    width        : 50px;
+    border-radius: 50%;
+    box-shadow   : 0 0 5px #ccc;
+}
+
+.chat-list .msg .info .text {
+    display         : inline-block;
+    border          : 1px solid #ddd;
+    border-radius   : 10px;
+    padding         : 10px;
+    background-color: #fff;
+    font-size       : 16px;
+    overflow-wrap   : break-word;
+    word-break      : break-word;
+    max-width       : 40vw;
+}
+
+.chat-list .msg .info.sys {
+    font-size : 16px;
+    text-align: center;
+}
+
+.chat-list .msg .info.sys .text {
+    background-color: #fff;
+    border          : 0;
+    color           : #999;
+    font-size       : 13px;
+}
+
+.user-list-wrapper {
+    position        : absolute;
+    left            : 0;
+    right           : 30px;
+    background-color: #fff;
+    overflow        : hidden;
+}
+
+.user-list {
+    padding-top: 5px;
+    white-space: nowrap;
+    overflow-x : scroll;
+}
+
+.o2o-msg {
+    height  : 60vh;
+    overflow: hidden;
+    margin  : 0px -15px;
+    overflow-y: auto;
+}
+
+.send-btn {
+    width: 1.5rem;
+}

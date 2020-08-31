@@ -1,0 +1,36 @@
+{
+    "presets": [
+        [
+            "@babel/env",
+            {
+                "corejs": 2,
+                "modules": false, // 避免babel将模块引入变为commonjs形式，而导致的tree shaking失效
+                "useBuiltIns": "usage"
+            }
+        ],
+        "@babel/react",
+        "@babel/typescript"
+    ],
+    "plugins": [
+        [
+            "@babel/proposal-decorators",
+            {
+                "legacy": true
+            }
+        ],
+        [
+            "@babel/proposal-class-properties",
+            {
+                "loose": true
+            }
+        ],
+        [
+            "import",
+            {
+                "libraryName": "antd",
+                "libraryDirectory": "es",
+                "style": true
+            }
+        ]
+    ]
+}

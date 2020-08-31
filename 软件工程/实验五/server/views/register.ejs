@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册</title>
+    <link rel='stylesheet' href='/stylesheets/register.css' />
+</head>
+<body>
+    <% include ./modules/header.ejs %>
+    <div class="main-register">
+        <div class="register">
+            <form id="registerForm">
+            <div class="flex phone-input">
+                <input type="text" placeholder="请输入手机号" id="regPhone" name="phone"/>
+                <button id="getCapture" class="btn-capture" disabled>获取验证码</button>
+            </div>
+            <div class="flex phone-input">
+                <input type="text" placeholder="请输入用户名" name="username"/>
+            </div>
+            <div class="flex phone-input mt-30">
+                <input type="password" placeholder="请输入密码" name="password" />
+            </div>
+            <div class="register-btn mt-20" id="btnRegister">
+                注册
+            </div>
+        </form>
+        </div>
+    </div>
+    <% include ./modules/footer.ejs %>
+    <script type="text/javascript" src='/javascripts/validator.js' ></script>
+    <script type="text/javascript" src='/javascripts/register.js' ></script>
+</body>
+</html>

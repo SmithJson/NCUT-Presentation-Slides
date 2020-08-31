@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>员工列表</title>
+    
+    <link rel='stylesheet' href='/stylesheets/login.css' />
+</head>
+<body>
+    <% include ./modules/header.ejs %>
+
+    <div class="page-frame-content">
+        <div class="group-button">
+            <button type="button" class="btn-normal" id="btnAddStaff" >添加员工</button>
+            <span>当前员工人数：<em id="staffsTotal">0</em></span>
+        </div>
+        <table id="tableUserTable">
+            <thead>
+                <tr>
+                <th>序号</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <th>家乡</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody id="staffsData">
+            </tbody>
+        </table>
+        
+    </div>
+    <div class="staff-add-box" style="display: none;" id="staffAddBox">
+        <% include ./modules/staff-add.ejs %>
+    </div>
+   
+    <% include ./modules/footer.ejs %>
+     <script type="text/javascript" src='/javascripts/staffs.js' ></script>
+   
+</body>
+</html>

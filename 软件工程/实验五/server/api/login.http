@@ -1,0 +1,155 @@
+## 全部变量
+@hostname = http://127.0.0.1
+@port = 3000
+@host = {{hostname}}:{{port}}
+
+### 用户登录
+@path1 = api/login
+POST {{host}}/{{path1}} HTTP/1.1
+content-type: application/json;charset=utf-8
+
+{
+    "username": "S19951060119",
+    # "username": "S71995106010",
+    "password": "123456"
+}
+
+### 用户详情
+@path8 = api/profile
+GET {{host}}/{{path8}}?id=S19951060119
+
+### 学院列表
+@path3 = api/school
+GET {{host}}/{{path3}} HTTP/1.1
+
+### 系列表
+GET {{host}}/{{path3}}/215 HTTP/1.1
+
+### 时间段列表
+@path0 = api/times
+GET {{host}}/{{path0}} HTTP/1.1
+
+### 统计
+GET {{host}}/api/statistical HTTP/1.1
+
+######################### 选课 #########################
+
+@path9 = api/choose
+GET  {{host}}/{{path9}}/C101 HTTP/1.1
+
+@path7 = api/elective
+POST {{host}}/{{path7}}/1 HTTP/1.1
+content-type: application/json;charset=utf-8
+
+{
+    "bingo": 1,
+    "courseId": "C101",
+    "score": 80,
+    "state": "START",
+    "studentId": "S41995106010"
+}
+
+######################### 授课 #########################
+
+### 授课列表
+@path6 = api/teach
+GET {{host}}/{{path6}}?page=1&size=10 HTTP/1.1
+
+### 授课详情
+GET {{host}}/{{path6}}/1 HTTP/1.1
+
+######################### 课程 #########################
+
+### 课程列表
+@path5 = api/course
+GET {{host}}/{{path5}}?page=1&size=10 HTTP/1.1
+
+### 查询课程
+GET {{host}}/{{path5}}?scene=search&search=系统 HTTP/1.1
+
+### 查询课程
+GET {{host}}/{{path5}}?scene=all&search=系统 HTTP/1.1
+
+### 删除课程
+DELETE {{host}}/{{path5}}/C301 HTTP/1.1
+
+### 添加课程
+POST {{host}}/{{path5}} HTTP/1.1
+content-type: application/json;charset=utf-8
+
+{
+    "id": "C11",
+    "name": "测试课程",
+    "cycle": 1,
+    "credit": 1,
+    "intro": "测试课程简介",
+    "prevId": ["C102", "C101"]
+}
+
+######################### 老师 #########################
+
+### 老师列表
+@path4 = api/teacher
+GET {{host}}/{{path4}}?page=1&size=10 HTTP/1.1
+
+### 老师搜索
+GET {{host}}/{{path4}}?page=1&size=10&tId=S31995106010 HTTP/1.1
+
+### 全部老师
+GET {{host}}/{{path4}}?scene=all HTTP/1.1
+
+### 删除老师
+DELETE {{host}}/{{path2}}/S31995106010 HTTP/1.1
+
+### 老师详情
+GET {{host}}/{{path4}}/S31995106010 HTTP/1.1
+
+######################### 学生 #########################
+
+### 学生列表
+@path2 = api/student
+GET {{host}}/{{path2}}?page=1&size=10 HTTP/1.1
+
+### 学生搜索
+GET {{host}}/{{path2}}?page=1&size=10&sId=S71995106010 HTTP/1.1
+
+### 全部学生
+GET {{host}}/{{path2}}?scene=all HTTP/1.1
+
+### 学生详情
+GET {{host}}/{{path2}}/S71995106010 HTTP/1.1
+
+### 删除学生
+DELETE {{host}}/{{path2}}/S71995106010 HTTP/1.1
+
+### 添加学生
+POST {{host}}/{{path2}}/ HTTP/1.1
+content-type: application/json;charset=utf-8
+
+{
+    "age": 19,
+    "avatar": "https://goss.veer.com/creative/vcg/veer/800water/veer-301663045.jpg",
+    "deptId": "011",
+    "email": "t.srkvnv@kpaxn.cd",
+    "gender": "unknown",
+    "no": "AAAAA",
+    "schoolId": 215,
+    "tel": "13506828279",
+    "username": "李强"
+}
+
+### 编辑学生
+POST {{host}}/{{path2}}/AAAAA HTTP/1.1
+content-type: application/json;charset=utf-8
+
+{
+    "age": 19,
+    "avatar": "https://goss.veer.com/creative/vcg/veer/800water/veer-301663045.jpg",
+    "deptId": "010101",
+    "email": "t.srkvnv@kpaxn.cd",
+    "gender": "unknown",
+    "no": "AAAAA",
+    "schoolId": "217",
+    "tel": "13506828279",
+    "username": "李强A"
+}

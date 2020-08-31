@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+  </head>
+  <body>
+    <!-- // 比如我创建了两个一个footer.ejs 和一个 header.ejs表示公共部分的头和尾 然后不同的模块只要引入头和尾就可以 -->
+    <% include ./modules/header.ejs %>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <% include ./modules/footer.ejs %>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+{
+    "parser": "postcss-safe-parser",
+    "map": false,
+    "plugins": {
+        "postcss-preset-env": {
+            "autoprefixer": {
+                "flex-box": "no-2009",
+                "stage": 3
+            }
+        },
+        "postcss-pxtorem": {
+            "rootValue": 16,
+            "minPixelValue": 2,
+            "propWhiteList": []
+        }
+    }
+}

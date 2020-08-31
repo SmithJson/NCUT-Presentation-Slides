@@ -1,0 +1,107 @@
+@import "./normalize.less";
+@import "./colors.less";
+@import "./loading.less";
+@import "./and.less";
+
+// 解决父元素高度塌陷
+.clearfix {
+	&::after {
+		content: " ";
+		clear: both;
+		display: block;
+		visibility: hidden;
+	}
+}
+
+// 文本省略
+.text-ellipsis(@line: 1) {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: @line;
+	overflow: hidden;
+}
+
+// 绘制小箭头
+.angle(@direction: top, @size: 10px) {
+	&::before {
+		content: "";
+		position: absolute;
+		top: 50%;
+		transform: translateY(95%);
+		display: block;
+		width: 0;
+		height: 0;
+		border: @size solid transparent;
+		border-@{direction}: @size solid @colorM;
+	}
+}
+
+// 按钮样式
+.my-btn(@bgc: #fff, @color: #000) {
+    line-height: 1.5715;
+    position: relative;
+    display: inline-block;
+    font-weight: 400;
+    white-space: nowrap;
+    text-align: center;
+    background-image: none;
+    border: 1px solid transparent;
+    box-shadow: 0 0.125rem 0 rgba(0, 0, 0, 0.015);
+    cursor: pointer;
+    touch-action: manipulation;
+    height: 2rem;
+    padding: 0.25rem 0.9375rem;
+    font-size: 0.875rem;
+    border-radius: 0.125rem;
+    color: rgba(@color, 0.65);
+    background-color: @bgc;
+    border-color: #d9d9d9;
+}
+
+.btn {
+    &-success {
+        color: @colorW;
+    }
+    &-error {
+        color: @colorB;
+    }
+    &-primary {
+        color: @colorO;
+    }
+}
+
+.content-wrap {
+	background: @colorM;
+	border: 1px solid @colorK;
+	margin-top: -3px;
+	width: 100%;
+	padding: 15px;
+	border-radius: 5px;
+}
+
+.search-header-container {
+    padding-bottom: 10px;
+}
+
+.container {
+	overflow: hidden;
+
+	.nav-left-wrapper {
+		height: calc(100vh);
+	}
+
+	.main-wrapper {
+		height: calc(100vh);
+		background-color: @colorL;
+		overflow-y: scroll;
+		&::-webkit-scrollbar {
+			display: none;
+		}
+
+		.content {
+			position: relative;
+			padding: 20px;
+			min-height: calc(100vh - 200px);
+		}
+	}
+}

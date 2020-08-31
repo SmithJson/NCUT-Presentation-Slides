@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>测试</title>
+   
+    <link rel='stylesheet' href='/stylesheets/login.css' />
+</head>
+<body>
+    <% include ./modules/header.ejs %>
+    <div class="main-login">
+     <form id="formLogin">
+        <div class="login">
+            <ul class="login-ul">
+                <li>登录</li>
+            </ul>
+            <div class="flex phone-input mt-20">
+                <input type="text" placeholder="请输入用户名" name="username" />
+                <span>获取验证码</span>
+            </div>
+            <div class="flex phone-input mt-20">
+                <input type="text" placeholder="请输入验证码" name="password"/>
+            </div>
+           
+            <div class="form-inline-input">
+               <span class="title">校验：</span>
+					<div class="code-box" id="code-box">
+						<input type="text" name="code" class="code-input" />
+						<p></p>
+						<span>>>></span>
+					</div>
+
+            </div>
+            
+            <div class="login-btn mt-10" id="btnLogin">
+                登 录
+            </div>
+        </div>
+    </form>
+    </div>
+    <% include ./modules/footer.ejs %>
+    <script src='/javascripts/slideCheck.js' ></script>
+    <script src='/javascripts/login.js' ></script>
+
+</body>
+</html>

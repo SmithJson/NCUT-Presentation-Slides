@@ -1,0 +1,22 @@
+.login-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-wrap {
+    width: 50vw;
+    text-align: center;
+}
+
+.username-wrap {
+    padding-bottom: 20px;
+}
+
+.avatar-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-bottom: 20px;
+}

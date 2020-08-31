@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/server.css">
+</head>
+<body>
+    <div class="container">
+        <div class="preview-mess-wrapper">
+            <textarea name="preview-mess" id="preview-mess" disabled></textarea>
+        </div>
+        <div class="opt-wrapper">
+            <div class="opt show-ip">
+                <input type="text" class="ip" placeholder="请输入 ip" disabled value=<%= ip %> />
+            </div>
+            <div class="opt show-port">
+                <input type="text" class="port" placeholder="请输入端口">
+            </div>
+            <div class="opt btn-group">
+                <button class="start">启动</button>
+                <button class="stop">停止</button>
+                <button class="clear">清除所有</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+        <script src="/lib/weapp.socket.io.js"></script>
+    <script src="/javascripts/server.js"></script>
+</body>
+</html>

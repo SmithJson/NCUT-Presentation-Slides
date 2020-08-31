@@ -1,0 +1,67 @@
+//6.1 线性变换增强
+
+	int k=3;
+	for(int i=0;i<512*512*3;++i)
+	{
+	int data=*(pImageData+i)*k;
+	if(data>255)data=255;
+	*(pImageData+i)=data;
+	}
+	
+
+
+
+//6.2 对数变换增强
+  int a=5;
+	int b=40;
+	int c=1000/b;
+	for(int i=0;i<512*512*3;++i)
+	{
+	int data=*(pImageData+i);
+	int temp=c*log(1.0*(1+data))+a;
+	if(temp>255)temp=255;
+	*(pImageData+i)=temp;
+	
+	
+	}
+
+	
+//6.3指数变换增强
+
+	int a=10;
+	float b=15;
+	float c=50;
+	float x=b/10;
+	float y=c/1000;
+		for(int i=0;i<512*512*3;++i)
+	{
+    	int data=*(pImageData+i);
+		int temp=pow(x,y*(data-a))-1;
+		if(temp>255)temp=255;
+	    *(pImageData+i)=temp;
+	}
+
+
+	
+//6.4伪彩色增强
+
+		for(int i=0;i<512*512*3;i+=3){
+        int dataB=*(pImageData+i+0);
+		if (dataB<=63)dataB=255;
+		else if(dataB>=64&&dataB<=127)dataB=-4*dataB+510;
+		else dataB=0;
+		*(pImageData+i+0)=dataB;
+
+		int dataG=*(pImageData+i+1);
+		if(dataG<=63)dataG==-4*dataG+255;
+		else if(dataG>=64&&dataG<=127)dataG=4*dataG-254;
+		else if(dataG>=128&&dataG<=191)dataG=255;
+		else dataG=-4*dataG+1022;
+		*(pImageData+i+1)=dataG;
+		
+		int dataR=*(pImageData+i+2);
+		if (dataR<=127)dataR=0;
+		else if(dataR>=128&&dataR<=191)dataB=-4*dataB-510;
+		else dataR=255;
+		*(pImageData+i+2)=dataR;
+		}

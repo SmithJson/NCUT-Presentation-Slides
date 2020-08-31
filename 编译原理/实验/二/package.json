@@ -1,0 +1,15 @@
+{
+  "name": "111",
+  "version": "1.0.0",
+  "description": "",
+  "main": "compiler.js",
+  "scripts": {
+    "start": "node ./compiler.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "console-grid": "^1.0.16"
+  }
+}

@@ -1,0 +1,42 @@
+@import "../../styles/colors.less";
+
+.nav-left {
+    height: calc(100vh);
+	overflow: scroll;
+	transition: all 0.3s;
+	&::-webkit-scrollbar {
+		display: none;
+	}
+	&.dark {
+		background-color: @colorR;
+		color: @colorL;
+	}
+
+	.logo-wrapper {
+		padding-bottom: 20px;
+		text-align: center;
+
+		.system-name {
+			font-size: 24px;
+			text-align: center;
+		}
+
+		.logo {
+			width: 55%;
+		}
+	}
+
+	.menu-wrapper {
+		.style-change-button {
+			display: flex;
+			flex-wrap: nowrap;
+			padding-bottom: 10px;
+			padding-left: 15px;
+			padding-right: 5px;
+
+			span {
+				padding-left: 5px;
+			}
+		}
+	}
+}

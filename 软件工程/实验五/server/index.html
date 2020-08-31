@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ECharts</title>
+</head>
+
+<body>
+
+    <!---------------------------------------------------------- 矩形图----------------------------------------------------->
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="height:400px;width: 700px"></div>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <!--ECharts单文件引入 -->
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <!-- <script type="text/javascript">
+        var myChart = "";
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                myChart = ec.init(document.getElementById('main'));
+
+                var option = {
+                    tooltip: {
+                        show: true
+                    },
+                    legend: {
+                        data: ['销量']
+                    },
+                    xAxis: [
+                        {
+                            type: 'category',
+                            data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
+                        }
+                    ],
+                    yAxis: [
+                        {
+                            type: 'value'
+                        }
+                    ],
+                    series: [
+                        {
+                            "name": "销量",
+                            "type": "bar",
+                            "data": [5, 20, 40, 10, 10, 20]
+                        }
+                    ]
+                };
+
+                // 为echarts对象加载数据
+                myChart.setOption(option);
+
+                //以下为导出图表为图片，延时执行的作用是确保图表数据渲染已经完成
+                setTimeout(function () {
+                    var img = new Image();
+                    img.src = myChart.getDataURL({
+                        type: "png",
+                        pixelRatio: 2, //放大2倍
+                        backgroundColor: '#fff'
+                    });
+
+                    img.οnlοad = function () {
+                        var canvas = document.createElement("canvas");
+                        canvas.width = img.width;
+                        canvas.height = img.height;
+                        var ctx = canvas.getContext('2d');
+                        ctx.drawImage(img, 0, 0);
+                        var dataURL = canvas.toDataURL('image/png');
+
+                        var a = document.createElement('a');
+                        // 创建一个单击事件
+                        var event = new MouseEvent('click');
+                        // 将a的download属性设置为我们想要下载的图片名称，若name不存在则使用‘下载图片名称’作为默认名称
+                        a.download = '矩形图表.png' || '下载图片名称';
+                        // 将生成的URL设置为a.href属性
+                        a.href = dataURL;
+                        // 触发a的单击事件
+                        a.dispatchEvent(event);
+                    };
+                }, 1000)
+            }
+        );
+    </script> -->
+
+    <!---------------------------------------------------------- 折线图----------------------------------------------------->
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main2" style="height:400px;width: 700px"></div>
+    <!-- ECharts单文件引入 -->
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <script type="text/javascript">
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/line' // 使用柱状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('main2'));
+
+                var option1 = {
+                    title: {
+                        text: '未来一周气温变化',
+                        subtext: '纯属虚构'
+                    },
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data: ['最高气温', '最低气温', '深圳气温']
+                    },
+                    grid: {
+                        containLabel: true
+                    },
+                    calculable: true,
+                    toolbox: {
+                        show: true,
+                        feature: {
+                            // mark: { show: true },
+                            // dataView: { show: true, readOnly: false },
+                            // magicType: { show: true, type: ['line', 'bar'] },
+                            // restore: { show: true },
+                            saveAsImage: { show: true }
+                        }
+                    },
+                    xAxis: [
+                        {
+                            type: 'category',
+                            boundaryGap: false,
+                            data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+                        }
+                    ],
+                    yAxis: [
+                        {
+                            type: 'value',
+                            axisLabel: {
+                                formatter: '{value} °C'
+                            }
+                        }
+                    ],
+                    series: [
+                        {
+                            name: '最高气温',
+                            type: 'bar',
+                            data: [11, 11, 15, 13, 12, 13, 10],
+                        },
+                        {
+                            name: '最低气温',
+                            type: 'bar',
+                            data: [1, -2, 2, 50000000, 3, 2, 0],
+                        },
+                        {
+                            name: '深圳气温',
+                            type: 'bar',
+                            data: [6, -2, 3, 5, 3, 2, 14],
+                        }
+                    ]
+                };
+                // 为echarts对象加载数据
+                myChart.setOption(option1);
+            }
+        );
+    </script>
+</body>
+
+</html>

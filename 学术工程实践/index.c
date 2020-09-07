@@ -289,10 +289,12 @@ void deleteScore(SCORE_LINK_LIST *head, char sno[20])
 {
 	SCORE_LINK_LIST *tmp = head->next;
 	SCORE_LINK_LIST *prev = NULL;
+	int flag = 0;
 	while (tmp != NULL)
 	{
 		if (strcmp(tmp->sno, sno) == 0)
 		{
+			flag = 1;
 			if (prev == NULL)
 			{
 				head->next = head->next;
@@ -310,6 +312,10 @@ void deleteScore(SCORE_LINK_LIST *head, char sno[20])
 			prev = tmp;
 			tmp = tmp->next;
 		}
+	}
+	if (flag == 0)
+	{
+		printf("该学生没有记录可以删除\n");
 	}
 }
 
@@ -441,10 +447,12 @@ STU_LINK_LIST *deleteStu(STU_LINK_LIST *head)
 	char no[20];
 	printf("请输入要删除学生的学号：\n");
 	scanf("%s", no);
+	int flag = 0;
 	while (tmp != NULL)
 	{
 		if (strcmp(tmp->no, no) == 0)
 		{
+			flag = 1;
 			result = tmp;
 			if (prev == NULL)
 			{
@@ -462,6 +470,10 @@ STU_LINK_LIST *deleteStu(STU_LINK_LIST *head)
 			prev = tmp;
 			tmp = tmp->next;
 		}
+	}
+	if (flag == 0)
+	{
+		printf("学生不存在\n");
 	}
 	return result;
 }
@@ -504,12 +516,18 @@ void insertStu(STU_LINK_LIST *head)
 	}
 	else
 	{
-		while (tmp->next != NULL)
+		
+		if (node->age < 0) {
+			printf("年龄不得小于 0 岁\n");
+		}
+		else {
+			while (tmp->next != NULL)
 		{
 			tmp = tmp->next;
 		}
 		tmp->next = node;
-	}
+		}
+			}
 }
 
 // 显示学生
